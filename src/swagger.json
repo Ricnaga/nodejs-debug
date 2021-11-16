@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Nodejs - Debug | Documentation",
+    "description": "Debug challenge API Documentation",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/repositories": {
+      "post": {
+        "tags": ["Repositories"],
+        "summary": "Create repository",
+        "description": "Create a new repository",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "techs": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "title": "A Title",
+                "url": "http://localhost:3333/repositories",
+                "techs": "nodejs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Repository already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Repositories"],
+        "summary": "List repository",
+        "description": "List a new repository",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Please check the repository again"
+          }
+        }
+      }
+    },
+    "/repositories/{id}": {
+      "put": {
+        "tags": ["Repositories"],
+        "summary": "Update todo",
+        "description": "Update an existent repository",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id that need to be list",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "techs": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "title": "An updated Title",
+                  "url": "http://localhost:3333/repositories/:id",
+                  "techs": "nodejs"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "This repository does not exists!"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["repositories"],
+        "summary": "Delete repository",
+        "description": "Delete an existent repository",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id that need to be list",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "This repository does not exists!"
+          }
+        }
+      }
+    },
+    "/repositories/{id}/like": {
+      "post": {
+        "tags": ["repositories"],
+        "summary": "Like a repository",
+        "description": "Give like to an existent repository",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id that need to be list",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "404": {
+            "description": "Repository not found!"
+          }
+        }
+      }
+    }
+  }
+}
