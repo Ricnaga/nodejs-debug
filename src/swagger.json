@@ -110,7 +110,7 @@
         }
       },
       "delete": {
-        "tags": ["repositories"],
+        "tags": ["Repositories"],
         "summary": "Delete repository",
         "description": "Delete an existent repository",
         "parameters": [
@@ -136,7 +136,7 @@
     },
     "/repositories/{id}/like": {
       "post": {
-        "tags": ["repositories"],
+        "tags": ["Repositories"],
         "summary": "Like a repository",
         "description": "Give like to an existent repository",
         "parameters": [
